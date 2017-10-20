@@ -1,0 +1,42 @@
+{
+  "name": "structured-schema-logger",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc",
+    "prestart": "npm run build",
+    "pretest": "npm run build",
+    "test": "./node_modules/.bin/mocha build/test/**/*Tests.js --reporter spec",
+    "precommit": "lint-staged",
+    "coverage": "nyc npm run test --reporter lcov"
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.4.2",
+    "@types/uuid": "^3.4.0",
+    "@types/node": "^8.0.20",
+    "@types/chai": "^4.0.4",
+    "@types/karma": "^0.13.36",
+    "@types/mocha": "^2.2.43",
+    "@types/sinon": "^2.3.5",
+    "chai": "^4.1.2",
+    "eslint": "^4.7.2",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "husky": "^0.14.3",
+    "istanbul": "^0.4.5",
+    "karma": "^1.7.1",
+    "lint-staged": "^4.2.3",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1",
+    "prettier": "^1.7.0",
+    "sinon": "^3.3.0"
+  }
+}
