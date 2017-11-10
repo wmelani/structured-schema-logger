@@ -65,7 +65,7 @@ describe("Std Out Logger", () => {
             expect(stdErrSpy.called).to.be.false;
             expect(stdoutSpy.callCount).to.be.equals(1);
             expect(stdoutSpy.args[0].length).to.be.equals(1);
-            const envelope = stdoutSpy.args[0][0];
+            const envelope = JSON.parse(stdoutSpy.args[0][0]);
             expect(envelope.time).to.be.not.undefined;
             expect(Date.parse(envelope.time)).to.be.not.equals(NaN);
         });
@@ -86,8 +86,6 @@ describe("Std Out Logger", () => {
             expect(stdErrSpy.called).to.be.false;
             expect(stdoutSpy.callCount).to.be.equals(1);
             expect(stdoutSpy.args[0].length).to.be.equals(1);
-            const envelope = stdoutSpy.args[0][0];
-            expect(envelope).to.be.
         });
         it("writes to stdout if warn", () => {
 
