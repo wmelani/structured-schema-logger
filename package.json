@@ -1,12 +1,16 @@
 {
   "name": "structured-schema-logger",
-  "version": "0.0.0",
+  "version": "0.0.4",
+  "main": "build/src/index.js",
+  "types": "build/src/index.d.ts",
   "scripts": {
+    "prebuild": "rm -rf build",
     "build": "tsc",
     "prestart": "npm run build",
     "pretest": "npm run build",
     "test": "./node_modules/.bin/mocha build/test/**/*Tests.js --reporter spec",
     "precommit": "lint-staged",
+    "prepublish": "npm run test",
     "coverage": "nyc npm run test --reporter lcov"
   },
   "lint-staged": {
@@ -15,17 +19,15 @@
     ]
   },
   "dependencies": {
-
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "typescript": "^2.4.2",
-    "@types/uuid": "^3.4.0",
-    "@types/node": "^8.0.20",
     "@types/chai": "^4.0.4",
-    "@types/karma": "^0.13.36",
+    "@types/karma": "^1.7.2",
     "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.20",
     "@types/sinon": "^2.3.5",
+    "@types/uuid": "^3.4.0",
     "chai": "^4.1.2",
     "eslint": "^4.7.2",
     "eslint-config-prettier": "^2.6.0",
@@ -37,6 +39,7 @@
     "mocha": "^3.5.3",
     "nyc": "^11.2.1",
     "prettier": "^1.7.0",
-    "sinon": "^3.3.0"
+    "sinon": "^3.3.0",
+    "typescript": "^2.4.2"
   }
 }
